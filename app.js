@@ -36,7 +36,9 @@ const checkForWin = () => {
   ) {
     winner = "X";
     document.getElementById("result").textContent = `${winner} Wins! 🎉`;
+    document.getElementById("restartButton").classList.remove("hidden");
   }
+
   // O Winning Combinations:
   if (
     (gameLogicBoard[0] === "O1" &&
@@ -66,6 +68,7 @@ const checkForWin = () => {
   ) {
     winner = "O";
     document.getElementById("result").textContent = `${winner} Wins! 🎉`;
+    document.getElementById("restartButton").classList.remove("hidden");
   }
 };
 
@@ -88,5 +91,14 @@ let handleClicks = () => {
     })
   );
 };
+
+document.getElementById("restartButton").addEventListener("click", () => {
+  document.getElementById("restartButton").classList.add("hidden");
+  playerSwitch = 1;
+  gameLogicBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  winner = "";
+  document.getElementById("result").textContent = "";
+  allGridItems.forEach((e) => (e.textContent = ""));
+});
 
 handleClicks();
