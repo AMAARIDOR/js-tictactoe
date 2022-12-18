@@ -8,21 +8,24 @@ let gameLogicBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 const checkForWin = () => {
   if (
-    gameLogicBoard[0] === "X1" &&
-    gameLogicBoard[1] === "X2" &&
-    gameLogicBoard[2] === "X3"
-  ) {
-    console.log("X Wins");
-  } else if (
-    gameLogicBoard[3] === "X4" &&
-    gameLogicBoard[4] === "X5" &&
-    gameLogicBoard[5] === "X6"
-  ) {
-    console.log("X Wins");
-  } else if (
-    gameLogicBoard[6] === "X7" &&
-    gameLogicBoard[7] === "X8" &&
-    gameLogicBoard[8] === "X9"
+    (gameLogicBoard[0] === "X1" &&
+      gameLogicBoard[1] === "X2" &&
+      gameLogicBoard[2] === "X3") ||
+    (gameLogicBoard[3] === "X4" &&
+      gameLogicBoard[4] === "X5" &&
+      gameLogicBoard[5] === "X6") ||
+    (gameLogicBoard[6] === "X7" &&
+      gameLogicBoard[7] === "X8" &&
+      gameLogicBoard[8] === "X9") ||
+    (gameLogicBoard[0] === "X1" &&
+      gameLogicBoard[3] === "X4" &&
+      gameLogicBoard[6] === "X7") ||
+    (gameLogicBoard[1] === "X2" &&
+      gameLogicBoard[4] === "X5" &&
+      gameLogicBoard[7] === "X8") ||
+    (gameLogicBoard[2] === "X3" &&
+      gameLogicBoard[5] === "X6" &&
+      gameLogicBoard[8] === "X9")
   ) {
     console.log("X Wins");
   }
