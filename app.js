@@ -1,6 +1,5 @@
 "use strict";
 
-let gameStartButtonElement = document.getElementById("gameStart");
 let allGridItems = document.querySelectorAll(".cell");
 
 let playerSwitch = 1;
@@ -71,8 +70,6 @@ const checkForWin = () => {
 };
 
 let handleClicks = () => {
-  gameStartButtonElement.textContent = "Restart";
-
   allGridItems.forEach((e) =>
     e.addEventListener("click", () => {
       if (playerSwitch === 1) {
@@ -91,4 +88,5 @@ let handleClicks = () => {
     })
   );
 };
-gameStartButtonElement.addEventListener("click", handleClicks);
+
+handleClicks();
