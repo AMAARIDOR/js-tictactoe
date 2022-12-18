@@ -4,13 +4,11 @@ let playerSwitch = 1;
 
 document.querySelectorAll("[data-cell]").forEach((e) =>
   e.addEventListener("click", () => {
-    const gridItemValue = e.textContent;
-
     if (playerSwitch === 1) {
-      gridItemValue = "X";
+      e.textContent = "X";
       playerSwitch = 0;
     } else {
-      gridItemValue = "O";
+      e.textContent = "O";
       playerSwitch = 1;
     }
   })
