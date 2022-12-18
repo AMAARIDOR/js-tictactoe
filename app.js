@@ -1,13 +1,14 @@
 "use strict";
 
-let playerSwitch = 1;
 let gameStartButtonElement = document.getElementById("gameStart");
 let allGridItems = document.querySelectorAll(".cell");
+
+let playerSwitch = 1;
 
 let handleClicks = () => {
   gameStartButtonElement.textContent = "Reset";
 
-  document.querySelectorAll("[data-cell]").forEach((e) =>
+  allGridItems.forEach((e) =>
     e.addEventListener("click", () => {
       gameStartButtonElement.addEventListener("click", () => {
         allGridItems.forEach((d) => (d.textContent = "."));
