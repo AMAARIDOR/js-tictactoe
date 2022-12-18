@@ -1,5 +1,12 @@
 #gridContainer {
+  font-size: 50px;
+  width: 50%;
+  margin: auto;
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 10px;
+}
+
+.cell {
+  padding: 100px;
+  text-align: center;
 }
