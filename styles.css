@@ -1,3 +1,35 @@
+h1 {
+  text-align: center;
+}
+
+.cell {
+  border: solid 2px black;
+}
+
+[data-cell="1"],
+[data-cell="2"],
+[data-cell="3"] {
+  border-top: none;
+}
+
+[data-cell="1"],
+[data-cell="4"],
+[data-cell="7"] {
+  border-left: none;
+}
+
+[data-cell="7"],
+[data-cell="8"],
+[data-cell="9"] {
+  border-bottom: none;
+}
+
+[data-cell="3"],
+[data-cell="6"],
+[data-cell="9"] {
+  border-right: none;
+}
+
 #gridContainer {
   font-size: 20px;
   width: 50%;

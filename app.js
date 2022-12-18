@@ -35,7 +35,7 @@ const checkForWin = () => {
       gameLogicBoard[6] === "X7")
   ) {
     winner = "X";
-    console.log(winner);
+    document.getElementById("result").textContent = `${winner} Wins! 🎉`;
   }
   // O Winning Combinations:
   if (
@@ -65,7 +65,7 @@ const checkForWin = () => {
       gameLogicBoard[6] === "O7")
   ) {
     winner = "O";
-    console.log(winner);
+    document.getElementById("result").textContent = `${winner} Wins! 🎉`;
   }
 };
 
