@@ -86,7 +86,7 @@ let handleClicks = () => {
         console.log(gameLogicBoard);
         playerSwitch = 1;
       }
-
+      console.log(gameLogicBoard);
       checkForWin();
     })
   );
