@@ -37,10 +37,7 @@ const checkForWin = () => {
     winner = "X";
     document.getElementById("result").textContent = `${winner} Wins! 🎉`;
     document.getElementById("restartButton").classList.remove("hidden");
-  }
-
-  // O Winning Combinations:
-  if (
+  } else if (
     (gameLogicBoard[0] === "O1" &&
       gameLogicBoard[1] === "O2" &&
       gameLogicBoard[2] === "O3") ||
@@ -70,6 +67,35 @@ const checkForWin = () => {
     document.getElementById("result").textContent = `${winner} Wins! 🎉`;
     document.getElementById("restartButton").classList.remove("hidden");
   }
+
+  // O Winning Combinations:
+  //   if (
+  //     (gameLogicBoard[0] === "O1" &&
+  //       gameLogicBoard[1] === "O2" &&
+  //       gameLogicBoard[2] === "O3") ||
+  //     (gameLogicBoard[3] === "O4" &&
+  //       gameLogicBoard[4] === "O5" &&
+  //       gameLogicBoard[5] === "O6") ||
+  //     (gameLogicBoard[6] === "O7" &&
+  //       gameLogicBoard[7] === "O8" &&
+  //       gameLogicBoard[8] === "O9") ||
+  //     (gameLogicBoard[0] === "O1" &&
+  //       gameLogicBoard[3] === "O4" &&
+  //       gameLogicBoard[6] === "O7") ||
+  //     (gameLogicBoard[1] === "O2" &&
+  //       gameLogicBoard[4] === "O5" &&
+  //       gameLogicBoard[7] === "O8") ||
+  //     (gameLogicBoard[2] === "O3" &&
+  //       gameLogicBoard[5] === "O6" &&
+  //       gameLogicBoard[8] === "O9") ||
+  //     (gameLogicBoard[0] === "O1" &&
+  //       gameLogicBoard[4] === "O5" &&
+  //       gameLogicBoard[8] === "O9") ||
+  //     (gameLogicBoard[2] === "O3" &&
+  //       gameLogicBoard[4] === "O5" &&
+  //       gameLogicBoard[6] === "O7")
+  //   ) {
+  //   }
 };
 
 let handleClicks = () => {
