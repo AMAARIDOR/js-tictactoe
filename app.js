@@ -1,101 +1,38 @@
 "use strict";
 
 let allGridItems = document.querySelectorAll(".cell");
+let resultElement = document.getElementById("result");
+let restartButtonElement = document.getElementById("restartButton");
 
 let playerSwitch = 1;
 let gameLogicBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let winner;
 
 const checkForWin = () => {
-  // X Winning Combinations:
-  if (
-    (gameLogicBoard[0] === "X1" &&
-      gameLogicBoard[1] === "X2" &&
-      gameLogicBoard[2] === "X3") ||
-    (gameLogicBoard[3] === "X4" &&
-      gameLogicBoard[4] === "X5" &&
-      gameLogicBoard[5] === "X6") ||
-    (gameLogicBoard[6] === "X7" &&
-      gameLogicBoard[7] === "X8" &&
-      gameLogicBoard[8] === "X9") ||
-    (gameLogicBoard[0] === "X1" &&
-      gameLogicBoard[3] === "X4" &&
-      gameLogicBoard[6] === "X7") ||
-    (gameLogicBoard[1] === "X2" &&
-      gameLogicBoard[4] === "X5" &&
-      gameLogicBoard[7] === "X8") ||
-    (gameLogicBoard[2] === "X3" &&
-      gameLogicBoard[5] === "X6" &&
-      gameLogicBoard[8] === "X9") ||
-    (gameLogicBoard[0] === "X1" &&
-      gameLogicBoard[4] === "X5" &&
-      gameLogicBoard[8] === "X9") ||
-    (gameLogicBoard[2] === "X3" &&
-      gameLogicBoard[4] === "X5" &&
-      gameLogicBoard[6] === "X7")
-  ) {
-    winner = "X";
-    document.getElementById("result").textContent = `${winner} Wins! 🎉`;
-    document.getElementById("restartButton").classList.remove("hidden");
-  } else if (
-    (gameLogicBoard[0] === "O1" &&
-      gameLogicBoard[1] === "O2" &&
-      gameLogicBoard[2] === "O3") ||
-    (gameLogicBoard[3] === "O4" &&
-      gameLogicBoard[4] === "O5" &&
-      gameLogicBoard[5] === "O6") ||
-    (gameLogicBoard[6] === "O7" &&
-      gameLogicBoard[7] === "O8" &&
-      gameLogicBoard[8] === "O9") ||
-    (gameLogicBoard[0] === "O1" &&
-      gameLogicBoard[3] === "O4" &&
-      gameLogicBoard[6] === "O7") ||
-    (gameLogicBoard[1] === "O2" &&
-      gameLogicBoard[4] === "O5" &&
-      gameLogicBoard[7] === "O8") ||
-    (gameLogicBoard[2] === "O3" &&
-      gameLogicBoard[5] === "O6" &&
-      gameLogicBoard[8] === "O9") ||
-    (gameLogicBoard[0] === "O1" &&
-      gameLogicBoard[4] === "O5" &&
-      gameLogicBoard[8] === "O9") ||
-    (gameLogicBoard[2] === "O3" &&
-      gameLogicBoard[4] === "O5" &&
-      gameLogicBoard[6] === "O7")
-  ) {
-    winner = "O";
-    document.getElementById("result").textContent = `${winner} Wins! 🎉`;
-    document.getElementById("restartButton").classList.remove("hidden");
-  }
+  let winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
 
-  // O Winning Combinations:
-  //   if (
-  //     (gameLogicBoard[0] === "O1" &&
-  //       gameLogicBoard[1] === "O2" &&
-  //       gameLogicBoard[2] === "O3") ||
-  //     (gameLogicBoard[3] === "O4" &&
-  //       gameLogicBoard[4] === "O5" &&
-  //       gameLogicBoard[5] === "O6") ||
-  //     (gameLogicBoard[6] === "O7" &&
-  //       gameLogicBoard[7] === "O8" &&
-  //       gameLogicBoard[8] === "O9") ||
-  //     (gameLogicBoard[0] === "O1" &&
-  //       gameLogicBoard[3] === "O4" &&
-  //       gameLogicBoard[6] === "O7") ||
-  //     (gameLogicBoard[1] === "O2" &&
-  //       gameLogicBoard[4] === "O5" &&
-  //       gameLogicBoard[7] === "O8") ||
-  //     (gameLogicBoard[2] === "O3" &&
-  //       gameLogicBoard[5] === "O6" &&
-  //       gameLogicBoard[8] === "O9") ||
-  //     (gameLogicBoard[0] === "O1" &&
-  //       gameLogicBoard[4] === "O5" &&
-  //       gameLogicBoard[8] === "O9") ||
-  //     (gameLogicBoard[2] === "O3" &&
-  //       gameLogicBoard[4] === "O5" &&
-  //       gameLogicBoard[6] === "O7")
-  //   ) {
-  //   }
+  for (let combination of winningCombinations) {
+    if (combination.every((index) => gameLogicBoard[index] === "X")) {
+      winner = "X";
+      resultElement.textContent = `${winner} is the winner! 🎉`;
+      restartButtonElement.classList.remove("hidden");
+      console.log("X is the winner");
+    } else if (combination.every((index) => gameLogicBoard[index] === "O")) {
+      winner = "O";
+      resultElement.textContent = `${winner} is the winner! 🎉`;
+      restartButtonElement.classList.remove("hidden");
+      console.log("O is the winner");
+    }
+  }
 };
 
 let handleClicks = () => {
@@ -103,12 +40,12 @@ let handleClicks = () => {
     e.addEventListener("click", () => {
       if (playerSwitch === 1) {
         e.textContent = "X";
-        gameLogicBoard[Number(e.dataset.cell) - 1] = "X" + e.dataset.cell;
+        gameLogicBoard[Number(e.dataset.cell) - 1] = "X";
         console.log(gameLogicBoard);
         playerSwitch = 0;
       } else {
         e.textContent = "O";
-        gameLogicBoard[Number(e.dataset.cell) - 1] = "O" + e.dataset.cell;
+        gameLogicBoard[Number(e.dataset.cell) - 1] = "O";
         console.log(gameLogicBoard);
         playerSwitch = 1;
       }
