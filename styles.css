@@ -56,9 +56,9 @@
 }
 
 .cell {
-  padding: 75px;
-  height: 10px;
-  width: 10px;
+  padding: 20px;
+  height: 100px;
+  width: 100px;
   text-align: center;
   border: 2.5px solid black;
   border-radius: 15px;
@@ -66,11 +66,20 @@
 }
 
 #gridContainer {
-  font-size: 75px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
+}
+
+#crossImg {
+  height: 100px;
+  width: 100px;
+}
+
+#circleImg {
+  height: 100px;
+  width: 100px;
 }
 
 .unselectable {

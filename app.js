@@ -39,14 +39,23 @@ const checkForWin = () => {
 let handleClicks = () => {
   allGridItems.forEach((event) =>
     event.addEventListener("click", () => {
-      if (event.textContent !== "" || winner) return;
+      let images = {
+        crossImage: document.createElement("img"),
+        circleImage: document.createElement("img"),
+      };
+
+      if (event.innerHTML !== "" || winner) return;
 
       if (currentPlayer === 1) {
-        event.textContent = "X";
+        images.crossImage.src = "images/cross.png";
+        images.crossImage.id = "crossImg";
+        event.append(images.crossImage);
         gameLogicBoard[Number(event.dataset.cell) - 1] = "X";
         currentPlayer = 0;
       } else {
-        event.textContent = "O";
+        images.circleImage.src = "images/circle.png";
+        images.circleImage.id = "circleImg";
+        event.append(images.circleImage);
         gameLogicBoard[Number(event.dataset.cell) - 1] = "O";
         currentPlayer = 1;
       }
